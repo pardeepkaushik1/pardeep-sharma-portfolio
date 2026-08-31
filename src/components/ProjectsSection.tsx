@@ -44,16 +44,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ darkMode }) =>
   };
 
   return (
-    <section id="project" className="pt-12 sm:pt-16 pb-20 relative overflow-hidden scroll-mt-20" style={{ perspective: 1200 }}>
+    <section id="project" className="pt-12 sm:pt-16 pb-20 relative overflow-hidden scroll-mt-20">
       {/* Background Glow */}
       <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
-        initial={{ opacity: 0, y: 70, rotateX: 10, scale: 0.96 }}
-        whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.15 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.02 }}
         transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        style={{ transformStyle: 'preserve-3d' }}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         {/* Header */}
@@ -71,10 +70,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ darkMode }) =>
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true, amount: 0.02 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card3D intensity={12} className="h-full">
                 <div
