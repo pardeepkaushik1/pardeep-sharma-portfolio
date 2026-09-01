@@ -125,7 +125,7 @@ export const technicalSkills: TechnicalSkill[] = [
   },
   {
     name: "JavaScript",
-    level: "Advanced",
+    level: "Expert",
     percentage: 75,
     icon: "Code2",
     color: "#f7df1e",
@@ -134,7 +134,7 @@ export const technicalSkills: TechnicalSkill[] = [
   },
   {
     name: "React.js",
-    level: "Advanced",
+    level: "Expert",
     percentage: 75,
     icon: "Atom",
     color: "#00d8ff",
@@ -151,30 +151,10 @@ export const technicalSkills: TechnicalSkill[] = [
     shortTag: "Tailwind"
   },
 
-  // Backend
-  {
-    name: "Node.js & Express",
-    level: "Advanced",
-    percentage: 78,
-    icon: "Server",
-    color: "#68a063",
-    category: "backend",
-    shortTag: "Node"
-  },
-  {
-    name: "REST APIs",
-    level: "Advanced",
-    percentage: 80,
-    icon: "Globe",
-    color: "#10b981",
-    category: "backend",
-    shortTag: "API"
-  },
-
   // Tools
   {
     name: "Git & GitHub",
-    level: "Advanced",
+    level: "Expert",
     percentage: 82,
     icon: "GitBranch",
     color: "#f43f5e",
@@ -183,7 +163,7 @@ export const technicalSkills: TechnicalSkill[] = [
   },
   {
     name: "Vite Build Tool",
-    level: "Advanced",
+    level: "Expert",
     percentage: 80,
     icon: "Flame",
     color: "#a855f7",
@@ -192,7 +172,7 @@ export const technicalSkills: TechnicalSkill[] = [
   },
   {
     name: "Postman / DevTools",
-    level: "Advanced",
+    level: "Expert",
     percentage: 84,
     icon: "Wrench",
     color: "#f97316",
@@ -232,7 +212,7 @@ export const projectsData: Project[] = [
   {
     id: "geocountrypedia",
     title: "Geocountrypedia",
-    category: "UI/UX Design",
+    category: "Countries info.",
     description: "A responsive country information website built to help users explore countries, view important details. It focuses on a smooth user experience, easy navigation, and visually appealing layouts that make discovering global information simple and enjoyable.",
     liveUrl: "https://geocountrypedia.netlify.app/",
     tags: ["HTML", "CSS", "JavaScript", "REST Countries API", "UI/UX"],
@@ -249,7 +229,7 @@ export const projectsData: Project[] = [
   {
     id: "indianholidays",
     title: "Indian Holidays Calendar",
-    category: "UI/UX Design",
+    category: "Calender",
     description: "This project is a modern holiday and event calendar designed to organize important dates in a clear and attractive interface. It helps users track upcoming events, and enjoy a simple planning experience through clean design,and easy accessibility.",
     liveUrl: "https://indianholidays.netlify.app/",
     tags: ["JavaScript", "Calendar System", "CSS Grid", "Event Filters"],
@@ -266,10 +246,10 @@ export const projectsData: Project[] = [
   {
     id: "muviztv",
     title: "MuvizTV Movie App",
-    category: "UI/UX Design",
+    category: "movie app",
     description: "A stylish movie discovery platform that lets users browse trending films, explore details, and enjoy a cinematic browsing experience. The interface is designed to feel modern and intuitive, making it easy to discover movies.",
     liveUrl: "https://muviztv.netlify.app",
-    tags: ["React / JS", "TMDB API", "Cinematic UI", "Search & Filters"],
+    tags: ["java script", "TMDB API", "Cinematic UI", "Search & Filters"],
     features: [
       "Live trending movies and top-rated TV series feed",
       "Rich movie overviews with ratings, cast, and trailers",
@@ -283,7 +263,7 @@ export const projectsData: Project[] = [
   {
     id: "todaysweathersky",
     title: "Todays Weather Sky",
-    category: "UI/UX Design",
+    category: "weather app",
     description: "This weather application provides real-time updates and simple forecasts in a clean dashboard format. It helps users quickly understand current weather conditions, and plan their day better.",
     liveUrl: "https://todaysweathersky.netlify.app/",
     tags: ["Weather API", "Live Forecast", "Geolocation", "Dynamic Cards"],
@@ -302,8 +282,8 @@ export const projectsData: Project[] = [
     title: "Amazon Clone",
     category: "E-Commerce UI",
     description: "A responsive e-commerce storefront inspired by Amazon. Features interactive product catalogs, real-time shopping cart management, price calculations, customer reviews, and intuitive multi-category browsing.",
-    liveUrl: "https://amazon-clone-live.netlify.app",
-    tags: ["React", "JavaScript", "CSS Grid", "Cart State", "E-Commerce UI"],
+    liveUrl: "https://myshopon.netlify.app/",
+    tags: ["JavaScript", "CSS Grid", "Cart State", "E-Commerce UI"],
     features: [
       "Dynamic product showcase with search, filters, and star ratings",
       "Interactive shopping cart with live subtotal calculation",
@@ -319,7 +299,7 @@ export const projectsData: Project[] = [
     title: "Note App",
     category: "Web Utility",
     description: "A clean, modern note-taking application designed for quick ideas, reminders, and daily task management. Features instant note creation, tag categorization, search filtering, and local data persistence.",
-    liveUrl: "https://quick-notes-app.netlify.app",
+    liveUrl: "https://writesnote.netlify.app/",
     tags: ["JavaScript", "Local Storage", "Tailwind CSS", "CRUD Operations", "Productivity"],
     features: [
       "Instant note creation, editing, and pinned priority notes",

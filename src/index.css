@@ -68,3 +68,21 @@
   background: #06b6d4;
 }
 
+/* Clean Print / PDF rules */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, nav, #hero, #about, #skills, #services, #projects, #contact {
+    display: none !important;
+  }
+  #pardeep-resume-pdf-doc {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
+

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, QrCode, Sparkles, ExternalLink, Download } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import { X, QrCode, Copy, Check, ExternalLink } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 
 interface QRModalProps {
   isOpen: boolean;
@@ -9,10 +9,31 @@ interface QRModalProps {
   darkMode: boolean;
 }
 
-export const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose, darkMode }) => {
+export const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose }) => {
+  const [copied, setCopied] = useState(false);
+  const [portfolioUrl, setPortfolioUrl] = useState(
+ 'https://pardeepkaushik1.github.io/pardeep-sharma-portfolio');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.href) {
+      // Use the actual current live URL if available
+      const current = window.location.href.split('#')[0];
+      if (current && !current.includes('about:blank')) {
+        setPortfolioUrl(current);
+      }
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
-  // We generate a clean vector QR matrix visual for Pardeep's portfolio
+  const handleCopyLink = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(portfolioUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -30,11 +51,12 @@ export const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose, darkMode }) =
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative max-w-sm w-full rounded-3xl p-8 border text-center shadow-[0_0_50px_rgba(0,238,255,0.25)] z-10 bg-slate-900 border-[#0ef] text-white"
+          className="relative max-w-sm w-full rounded-3xl p-7 sm:p-8 border text-center shadow-[0_0_50px_rgba(0,238,255,0.25)] z-10 bg-slate-900 border-[#0ef] text-white"
         >
           {/* Close button */}
           <button
             onClick={onClose}
+            aria-label="Close QR Modal"
             className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
@@ -45,83 +67,65 @@ export const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose, darkMode }) =
           </div>
 
           <h3 className="text-2xl font-bold mb-1 text-white">Scan My Portfolio</h3>
-          <p className="text-xs sm:text-sm mb-6 text-slate-400">
-            Scan this QR code with your mobile camera to open Pardeep Sharma's Portfolio instantly.
+          <p className="text-xs sm:text-sm mb-5 text-slate-300">
+            Scan this QR code with any mobile camera or QR scanner to open Pardeep Sharma's Portfolio live!
           </p>
 
-          {/* QR Code Container */}
-          <div className="bg-white p-4 rounded-2xl inline-block mx-auto mb-6 shadow-inner border border-slate-200">
-            <svg
-              viewBox="0 0 160 160"
-              className="w-44 h-44 mx-auto"
-              fill="#081b29"
-            >
-              {/* Clean decorative high-res QR pattern */}
-              <rect width="160" height="160" fill="#ffffff" />
-              
-              {/* Corner 1 (Top-Left) */}
-              <rect x="15" y="15" width="40" height="40" fill="#081b29" rx="4" />
-              <rect x="23" y="23" width="24" height="24" fill="#ffffff" rx="2" />
-              <rect x="29" y="29" width="12" height="12" fill="#06b6d4" rx="2" />
-
-              {/* Corner 2 (Top-Right) */}
-              <rect x="105" y="15" width="40" height="40" fill="#081b29" rx="4" />
-              <rect x="113" y="23" width="24" height="24" fill="#ffffff" rx="2" />
-              <rect x="119" y="29" width="12" height="12" fill="#06b6d4" rx="2" />
-
-              {/* Corner 3 (Bottom-Left) */}
-              <rect x="15" y="105" width="40" height="40" fill="#081b29" rx="4" />
-              <rect x="23" y="113" width="24" height="24" fill="#ffffff" rx="2" />
-              <rect x="29" y="119" width="12" height="12" fill="#06b6d4" rx="2" />
-
-              {/* Center Logo / Micro Pixels */}
-              <rect x="68" y="68" width="24" height="24" fill="#081b29" rx="6" />
-              <text x="80" y="84" textAnchor="middle" fill="#00eeff" fontWeight="bold" fontSize="14" fontFamily="sans-serif">P</text>
-
-              {/* Data Grid Mock bits */}
-              <rect x="62" y="18" width="8" height="8" fill="#081b29" />
-              <rect x="76" y="18" width="8" height="8" fill="#081b29" />
-              <rect x="62" y="32" width="8" height="8" fill="#081b29" />
-              <rect x="88" y="32" width="8" height="8" fill="#081b29" />
-              <rect x="62" y="46" width="8" height="8" fill="#081b29" />
-              <rect x="76" y="46" width="8" height="8" fill="#081b29" />
-              <rect x="88" y="46" width="8" height="8" fill="#081b29" />
-
-              <rect x="18" y="62" width="8" height="8" fill="#081b29" />
-              <rect x="32" y="62" width="8" height="8" fill="#081b29" />
-              <rect x="46" y="62" width="8" height="8" fill="#081b29" />
-              <rect x="18" y="76" width="8" height="8" fill="#081b29" />
-              <rect x="32" y="88" width="8" height="8" fill="#081b29" />
-
-              <rect x="105" y="62" width="8" height="8" fill="#081b29" />
-              <rect x="119" y="62" width="8" height="8" fill="#081b29" />
-              <rect x="133" y="76" width="8" height="8" fill="#081b29" />
-              <rect x="105" y="88" width="8" height="8" fill="#081b29" />
-              <rect x="127" y="88" width="8" height="8" fill="#081b29" />
-
-              <rect x="62" y="105" width="8" height="8" fill="#081b29" />
-              <rect x="76" y="119" width="8" height="8" fill="#081b29" />
-              <rect x="62" y="133" width="8" height="8" fill="#081b29" />
-              <rect x="88" y="133" width="8" height="8" fill="#081b29" />
-
-              <rect x="105" y="105" width="16" height="8" fill="#081b29" />
-              <rect x="129" y="105" width="12" height="8" fill="#081b29" />
-              <rect x="113" y="119" width="16" height="8" fill="#081b29" />
-              <rect x="105" y="133" width="8" height="8" fill="#081b29" />
-              <rect x="121" y="133" width="20" height="8" fill="#081b29" />
-            </svg>
+          {/* Genuine Scannable QR Code Container */}
+          <div className="bg-white p-3.5 rounded-2xl inline-block mx-auto mb-4 shadow-xl border-2 border-cyan-400/40">
+            <QRCodeSVG
+              value={portfolioUrl}
+              size={180}
+              level="M"
+              includeMargin={false}
+              fgColor="#081b29"
+              bgColor="#ffffff"
+              className="w-40 h-40 sm:w-44 sm:h-44 mx-auto"
+            />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <span className="text-xs font-mono text-cyan-400">
-              pardeepkaushik80776@gmail.com
-            </span>
-            <button
-              onClick={onClose}
-              className="mt-2 w-full py-3 rounded-xl font-bold bg-[#0ef] text-[#081b29] hover:bg-cyan-300 transition-colors shadow-md shadow-cyan-500/20 text-sm cursor-pointer"
-            >
-              Done
-            </button>
+          {/* Live Link & Copy Action */}
+          <div className="flex flex-col gap-2.5">
+            <div className="flex items-center justify-between gap-2 p-2 px-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs">
+              <span className="truncate text-slate-300 font-mono text-[11px] text-left select-all">
+                {portfolioUrl}
+              </span>
+              <button
+                onClick={handleCopyLink}
+                className="p-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-[#0ef] transition-colors shrink-0 flex items-center gap-1 font-semibold text-[11px] cursor-pointer"
+                title="Copy URL"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="text-emerald-400">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 mt-1">
+              <a
+                href={portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2.5 px-3 rounded-xl font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors text-xs flex items-center justify-center gap-1.5"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Open Link</span>
+              </a>
+              <button
+                onClick={onClose}
+                className="py-2.5 px-3 rounded-xl font-bold bg-[#0ef] text-[#081b29] hover:bg-cyan-300 transition-colors shadow-md shadow-cyan-500/20 text-xs cursor-pointer"
+              >
+                Done
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>

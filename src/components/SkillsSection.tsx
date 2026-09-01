@@ -85,7 +85,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ darkMode }) => {
   const filterButtons: { label: string; key: TechCategory; count: number }[] = [
     { label: 'All Tech', key: 'all', count: allCount },
     { label: 'Frontend', key: 'frontend', count: frontendCount },
-    { label: 'Backend', key: 'backend', count: backendCount },
+    ...(backendCount > 0 ? [{ label: 'Backend', key: 'backend' as TechCategory, count: backendCount }] : []),
     { label: 'Tools', key: 'tools', count: toolsCount }
   ];
 
@@ -191,7 +191,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ darkMode }) => {
                       </span>
                     </div>
 
-                    {/* Filter Pills (All Tech, Frontend, Backend, Tools) */}
+                    {/* Filter Pills (All Tech, Frontend, Tools) */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {filterButtons.map((btn) => {
                         const isActive = techFilter === btn.key;
@@ -229,15 +229,15 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ darkMode }) => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.25 }}
-                          className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 flex-1 content-between"
+                          className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 flex-1 content-between"
                         >
                           {filteredSkills.map((skill, index) => (
                             <div
                               key={skill.name}
-                              className="p-2.5 sm:p-3 rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 flex flex-col justify-between bg-slate-950/60 border-slate-800/80 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-950/40"
+                              className="p-3 sm:p-3.5 rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 flex flex-col justify-between bg-slate-950/60 border-slate-800/80 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-950/40"
                             >
                               {/* Top Row: Icon Badge, Title + Level, Percentage Pill */}
-                              <div className="flex items-center justify-between gap-2 mb-2">
+                              <div className="flex items-center justify-between gap-2 mb-2.5">
                                 <div className="flex items-center gap-2.5 min-w-0">
                                   {/* Left Icon Badge */}
                                   <div
