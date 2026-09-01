@@ -151,13 +151,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ darkMode, onOpenResu
 
               {/* CV Button at the bottom */}
               <div className="pt-4 mt-4 border-t border-slate-800/80 relative z-10">
-                <button
-                  onClick={onOpenResume}
+                <a
+                  href="/resume.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/25 transition-all text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <FileDown className="w-4 h-4" />
                   <span>View Detailed CV / Resume</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>

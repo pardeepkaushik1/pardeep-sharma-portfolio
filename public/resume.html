@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pardeep Sharma - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 820px;
+      margin-bottom: 16px;
+      padding: 10px 16px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: white;
+    }
+    .top-bar .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #00eeff;
+    }
+    .top-bar .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      background: #00eeff;
+      color: #081b29;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #38bdf8;
+    }
+    .btn-secondary {
+      background: #334155;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Resume Paper Container */
+    .resume-page {
+      width: 100%;
+      max-width: 820px;
+      min-height: 1100px;
+      background: #ffffff;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      overflow: hidden;
+    }
+
+    /* LEFT SIDEBAR */
+    .sidebar {
+      background: #061826;
+      color: #ffffff;
+      padding: 32px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar-top {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .name-block {
+      border-bottom: 1px solid #1e3a5f;
+      padding-bottom: 18px;
+    }
+    .name-block h1 {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .name-block h1 span {
+      color: #00eeff;
+      display: block;
+    }
+    .role-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      background: rgba(0, 238, 255, 0.12);
+      border: 1px solid rgba(0, 238, 255, 0.3);
+      color: #00eeff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      border-radius: 4px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 11.5px;
+      color: #e2e8f0;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      word-break: break-all;
+    }
+    .contact-icon {
+      width: 26px;
+      height: 26px;
+      background: #0f2d4a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00eeff;
+      flex-shrink: 0;
+      font-size: 12px;
+    }
+
+    .section-title-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #00eeff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .strengths-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+    .strengths-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .strengths-list li::before {
+      content: '›';
+      color: #00eeff;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .education-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+    .education-block p {
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+    .education-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 8px;
+      background: rgba(0, 238, 255, 0.15);
+      color: #00eeff;
+      font-size: 10.5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+
+    .signature-tag {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #1e3a5f;
+    }
+    .signature-tag .cursive {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 24px;
+      color: #00eeff;
+    }
+    .signature-tag .code-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #38bdf8;
+      margin-top: 2px;
+    }
+
+    /* RIGHT MAIN CONTENT */
+    .main-content {
+      padding: 32px 30px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .main-section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .main-section-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .main-section-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .section-subtitle {
+      font-size: 12px;
+      color: #2563eb;
+      font-style: italic;
+      margin-left: auto;
+      font-weight: 600;
+    }
+
+    .summary-text {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: #334155;
+      padding-left: 30px;
+      text-align: justify;
+    }
+    .summary-text strong {
+      color: #0f172a;
+    }
+
+    /* Highlights */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding-left: 30px;
+    }
+    .highlight-card {
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .highlight-card.blue {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+    .highlight-card.purple {
+      background: #faf5ff;
+      border-color: #e9d5ff;
+    }
+    .highlight-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+    .highlight-card.blue .highlight-icon {
+      background: #2563eb;
+    }
+    .highlight-card.purple .highlight-icon {
+      background: #7c3aed;
+    }
+    .highlight-num {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .highlight-card.blue .highlight-num { color: #1e3a8a; }
+    .highlight-card.purple .highlight-num { color: #581c87; }
+    .highlight-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      margin-top: 3px;
+      letter-spacing: 0.2px;
+    }
+
+    /* Experience */
+    .exp-container {
+      padding-left: 30px;
+    }
+    .exp-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .exp-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2563eb;
+    }
+    .exp-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      margin: 2px 0 8px 16px;
+    }
+    .exp-list {
+      list-style-type: disc;
+      padding-left: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-left: 30px;
+    }
+    .skill-box {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+    .skill-box.frontend { background: #f0f9ff; border-color: #bae6fd; }
+    .skill-box.tools { background: #fff1f2; border-color: #fecdd3; }
+    .skill-box.cloud { background: #f0fdfa; border-color: #99f6e4; }
+    .skill-box.other { background: #fefce8; border-color: #fef08a; }
+
+    .skill-box-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .skill-box.frontend .skill-box-header { color: #0369a1; }
+    .skill-box.tools .skill-box-header { color: #be123c; }
+    .skill-box.cloud .skill-box-header { color: #0f766e; }
+    .skill-box.other .skill-box-header { color: #a16207; }
+
+    .skill-box-content {
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .top-bar {
+        display: none !important;
+      }
+      .resume-page {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .resume-page {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        padding: 24px;
+      }
+      .main-content {
+        padding: 24px 18px;
+      }
+      .summary-text, .highlights-grid, .exp-container, .skills-grid {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Top Action Bar -->
+  <div class="top-bar">
+    <div class="title">📄 Pardeep Sharma — Curriculum Vitae (CV)</div>
+    <div class="actions">
+      <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <!-- A4 Resume Sheet -->
+  <div class="resume-page">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        
+        <!-- Header / Name -->
+        <div class="name-block">
+          <h1>
+            PARDEEP<br>
+            <span>SHARMA</span>
+          </h1>
+          <div class="role-badge">WEB DEVELOPER</div>
+        </div>
+
+        <!-- Contact details -->
+        <div class="contact-list">
+          <a href="tel:+918930880776" class="contact-item">
+            <span class="contact-icon">📞</span>
+            <span>+91-8930880776</span>
+          </a>
+          <a href="mailto:pardeepkaushik80776@gmail.com" class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <span>pardeepkaushik80776@gmail.com</span>
+          </a>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Cheeka, Haryana, India</span>
+          </div>
+          <a href="https://github.com/pardeepkaushik1" target="_blank" class="contact-item">
+            <span class="contact-icon">🐙</span>
+            <span>github.com/pardeepkaushik1</span>
+          </a>
+        </div>
+
+        <!-- Core Strengths -->
+        <div>
+          <div class="section-title-left">
+            <span>🛡️ CORE STRENGTHS</span>
+          </div>
+          <ul class="strengths-list">
+            <li>Problem Solving</li>
+            <li>Self Learning</li>
+            <li>REST API Integration</li>
+            <li>Database Management</li>
+            <li>Responsive UI Development</li>
+            <li>Web Development</li>
+            <li>Team Collaboration</li>
+            <li>Continuous Learning</li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <div class="section-title-left">
+            <span>🎓 EDUCATION</span>
+          </div>
+          <div class="education-block">
+            <h4>Bachelor of Commerce (B.Com)</h4>
+            <p>KUK (Kurukshetra University)</p>
+            <span class="education-badge">📅 2022 – 2025</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tag at bottom -->
+      <div class="signature-tag">
+        <div class="cursive">Build Better Web</div>
+        <div class="code-tag">&lt;/&gt;</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- PROFESSIONAL SUMMARY -->
+      <section>
+        <div class="main-section-header">
+          <span class="main-section-icon">👤</span>
+          <h2 class="main-section-title">PROFESSIONAL SUMMARY</h2>
+        </div>
+        <p class="summary-text">
+          Motivated and detail-oriented <strong>Web Developer</strong> with a strong passion for building responsive and user-friendly web applications. Skilled in front-end and back-end technologies, with hands-on experience in modern frameworks and tools. Eager to learn, grow and contribute to real-world projects while continuously improving my technical and problem-solving skills.
+        </p>
+      </section>
+
+      <!-- PROFESSIONAL HIGHLIGHTS -->
+      <section>
+        <div class="main-section-header">
+          <span class="main-section-icon">⭐</span>
+          <h2 class="main-section-title">PROFESSIONAL HIGHLIGHTS</h2>
+        </div>
+        <div class="highlights-grid">
+          <div class="highlight-card blue">
+            <div class="highlight-icon">&lt;/&gt;</div>
+            <div>
+              <div class="highlight-num">10+</div>
+              <div class="highlight-label">PROJECTS &amp; PRACTICE WEBSITES</div>
+            </div>
+          </div>
+          <div class="highlight-card purple">
+            <div class="highlight-icon">📱</div>
+            <div>
+              <div class="highlight-num">100%</div>
+              <div class="highlight-label">RESPONSIVE UI DESIGN</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <section>
+        <div class="main-section-header">
+          <span class="main-section-icon">💼</span>
+          <h2 class="main-section-title">PROFESSIONAL EXPERIENCE</h2>
+          <span class="section-subtitle">(Looking for Opportunities)</span>
+        </div>
+        <div class="exp-container">
+          <div class="exp-title">
+            <span class="exp-dot"></span>
+            <span>Fresher</span>
+          </div>
+          <div class="exp-role">Web Developer | Self Learner</div>
+          <ul class="exp-list">
+            <li>Built multiple responsive web applications using HTML, CSS, JavaScript and modern frameworks.</li>
+            <li>Developed and practiced REST API integration using JavaScript.</li>
+            <li>Worked on real-time projects including a movie search app, to-do app, weather app and more to strengthen my development skills.</li>
+            <li>Gained hands-on experience with Git &amp; GitHub for version control and collaborative development.</li>
+            <li>Continuously learning and exploring new technologies to improve my development skills and build real-world projects.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TECHNICAL SKILLS -->
+      <section>
+        <div class="main-section-header">
+          <span class="main-section-icon">⚙️</span>
+          <h2 class="main-section-title">TECHNICAL SKILLS</h2>
+        </div>
+        <div class="skills-grid">
+          
+          <!-- Frontend -->
+          <div class="skill-box frontend">
+            <div class="skill-box-header">💻 FRONTEND</div>
+            <div class="skill-box-content">
+              HTML5 &bull; CSS3 &bull; JavaScript<br>
+              React.js &bull; Tailwind CSS<br>
+              Bootstrap &bull; Responsive Design
+            </div>
+          </div>
+
+          <!-- Tools & Others -->
+          <div class="skill-box tools">
+            <div class="skill-box-header">🛠️ TOOLS &amp; OTHERS</div>
+            <div class="skill-box-content">
+              Git &bull; GitHub &bull; VS Code<br>
+              Postman &bull; Composer<br>
+              XAMPP &bull; Vercel &bull; Netlify
+            </div>
+          </div>
+
+          <!-- Deployment & Cloud -->
+          <div class="skill-box cloud">
+            <div class="skill-box-header">☁️ DEPLOYMENT &amp; CLOUD</div>
+            <div class="skill-box-content">
+              Vercel &bull; Netlify<br>
+              AWS (Basics) &bull; Hostinger<br>
+              Cloudinary
+            </div>
+          </div>
+
+          <!-- Other Skills -->
+          <div class="skill-box other">
+            <div class="skill-box-header">💡 OTHER SKILLS</div>
+            <div class="skill-box-content">
+              Problem Solving<br>
+              Communication<br>
+              Time Management &bull; Team Collaboration
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

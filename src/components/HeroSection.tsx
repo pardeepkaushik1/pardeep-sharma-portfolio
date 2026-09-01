@@ -176,14 +176,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ darkMode, onOpenResume
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <button
+              <a
                 id="hero-download-cv-btn"
-                onClick={onOpenResume}
+                href="/resume.html"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold border transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98] bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 shadow-md"
               >
                 <FileDown className="w-4 h-4 text-cyan-400" />
                 <span>Download CV</span>
-              </button>
+              </a>
             </div>
           </motion.div>
 
