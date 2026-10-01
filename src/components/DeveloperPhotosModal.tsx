@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence } from "motion/react";
 import {
   X,
   ChevronLeft,
   ChevronRight,
   Camera,
   Instagram,
-  CheckCircle2
-} from 'lucide-react';
+  CheckCircle2,
+} from "lucide-react";
 
 interface DeveloperPhotosModalProps {
   isOpen: boolean;
@@ -29,42 +29,43 @@ interface PhotoItem {
 // You can easily change any 'src' URL below to your own photo link anytime
 const DEFAULT_PHOTOS: PhotoItem[] = [
   {
-    id: 'photo-1',
-    title: 'Developer Portrait (Rooftop)',
-    subtitle: 'Frontend Developer • Pardeep Sharma',
-    src: '/public/images/img1.webp',
-    caption: 'Official Developer Portrait • Frontend Developer & Web Designer',
-    tag: 'Rooftop'
+    id: "photo-1",
+    title: "Developer Portrait (Rooftop)",
+    subtitle: "Frontend Developer • Pardeep Sharma",
+    src: "/public/images/img1.webp",
+    caption: "Official Developer Portrait • Frontend Developer & Web Designer",
+    tag: "Rooftop",
   },
   {
-    id: 'photo-2',
-    title: 'City Plaza Walk & Lifestyle',
-    subtitle: 'Streetwear & Lifestyle • Pardeep Sharma',
-    src: '/public/images/img2.webp',
-    caption: 'Casual Outdoor Portrait • Pardeep Sharma • Lifestyle & Streetwear',
-    tag: 'City Plaza'
+    id: "photo-2",
+    title: "City Plaza Walk & Lifestyle",
+    subtitle: "Streetwear & Lifestyle • Pardeep Sharma",
+    src: "/public/images/img2.webp",
+    caption:
+      "Casual Outdoor Portrait • Pardeep Sharma • Lifestyle & Streetwear",
+    tag: "City Plaza",
   },
   {
-    id: 'photo-3',
-    title: 'Modern Workspace & Code',
-    subtitle: 'Tech Studio • Pardeep Sharma',
-    src: '/public/images/img3.webp',
-    caption: 'Clean UI & Interactive Web Experiences • Tech Studio Session',
-    tag: 'Tech Studio'
+    id: "photo-3",
+    title: "Modern Workspace & Code",
+    subtitle: "Tech Studio • Pardeep Sharma",
+    src: "/public/images/img3.webp",
+    caption: "Clean UI & Interactive Web Experiences • Tech Studio Session",
+    tag: "Tech Studio",
   },
   {
-    id: 'photo-4',
-    title: 'Outdoor Garden & Park Walk',
-    subtitle: 'Outdoor Lifestyle • @pardeepkaushik_1',
-    src: '/public/images/img4.webp',
-    caption: 'Outdoor Lifestyle Portrait • Pardeep Sharma • Cheeka, Haryana',
-    tag: 'Park Walk'
-  }
+    id: "photo-4",
+    title: "Outdoor Garden & Park Walk",
+    subtitle: "Outdoor Lifestyle • @pardeepkaushik_1",
+    src: "/public/images/img4.webp",
+    caption: "Outdoor Lifestyle Portrait • Pardeep Sharma • Cheeka, Haryana",
+    tag: "Park Walk",
+  },
 ];
 
 export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
   isOpen,
-  onClose
+  onClose,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
@@ -74,17 +75,17 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') nextPhoto();
-      if (e.key === 'ArrowLeft') prevPhoto();
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") nextPhoto();
+      if (e.key === "ArrowLeft") prevPhoto();
     };
 
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, currentIndex]);
 
@@ -93,7 +94,9 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
   };
 
   const prevPhoto = () => {
-    setCurrentIndex((prev) => (prev - 1 + DEFAULT_PHOTOS.length) % DEFAULT_PHOTOS.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + DEFAULT_PHOTOS.length) % DEFAULT_PHOTOS.length,
+    );
   };
 
   const currentPhoto = DEFAULT_PHOTOS[currentIndex];
@@ -141,7 +144,7 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="relative z-10 w-full max-w-[95vw] sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-2xl sm:rounded-3xl overflow-hidden border border-cyan-500/30 bg-slate-900 text-slate-100 shadow-2xl shadow-cyan-950/60 flex flex-col max-h-[92dvh] sm:max-h-[90dvh]"
         >
           {/* Top Header Bar */}
@@ -191,7 +194,7 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="relative max-h-full max-w-full flex flex-col items-center justify-center z-10"
             >
               <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-500/40 bg-slate-900 shadow-cyan-950/60 group">
@@ -203,7 +206,10 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
                     loading="eager"
                     className="max-h-[38vh] sm:max-h-[48vh] md:max-h-[52vh] max-w-[82vw] sm:max-w-md md:max-w-lg w-auto h-auto aspect-4/5 object-cover sm:object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     onError={() => {
-                      setFailedImages((prev) => ({ ...prev, [currentPhoto.id]: true }));
+                      setFailedImages((prev) => ({
+                        ...prev,
+                        [currentPhoto.id]: true,
+                      }));
                     }}
                   />
                 ) : (
@@ -286,6 +292,6 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
         </motion.div>
       </div>
     </AnimatePresence>,
-    document.body
+    document.body,
   );
 };
