@@ -151,6 +151,26 @@ export const technicalSkills: TechnicalSkill[] = [
     shortTag: "Tailwind"
   },
 
+  // Backend
+  {
+    name: "Node.js",
+    level: "Expert",
+    percentage: 75,
+    icon: "Server",
+    color: "#22c55e",
+    category: "backend",
+    shortTag: "Node"
+  },
+  {
+    name: "Express.js",
+    level: "Expert",
+    percentage: 72,
+    icon: "Server",
+    color: "#38bdf8",
+    category: "backend",
+    shortTag: "Express"
+  },
+
   // Tools
   {
     name: "Git & GitHub",

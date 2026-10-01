@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Code,
@@ -6,10 +6,12 @@ import {
   Compass,
   GraduationCap,
   CheckCircle2,
-  FileDown
+  FileDown,
+  Camera
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { Card3D } from './Card3D';
+import { DeveloperPhotosModal } from './DeveloperPhotosModal';
 
 interface AboutSectionProps {
   darkMode: boolean;
@@ -17,6 +19,7 @@ interface AboutSectionProps {
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ darkMode, onOpenResume }) => {
+  const [devPhotosOpen, setDevPhotosOpen] = useState(false);
   const highlights = [
     {
       title: 'Clean Code Focus',
@@ -80,16 +83,33 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ darkMode, onOpenResu
           {/* Left Column: Profile Card */}
           <div className="lg:col-span-5 flex flex-col h-full">
             <div
-              className="h-full rounded-3xl p-6 sm:p-7 border flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 bg-slate-900 border-slate-800 shadow-2xl shadow-cyan-950/40 hover:border-cyan-500/50"
+              className="h-full rounded-2xl sm:rounded-3xl p-4 sm:p-7 border flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 bg-slate-900 border-slate-800 shadow-2xl shadow-cyan-950/40 hover:border-cyan-500/50"
             >
               {/* Subtle top-right accent glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl pointer-events-none" />
 
+              {/* View Developer Button at top right of the card, responsive and matching logo */}
+              <button
+                type="button"
+                onClick={() => setDevPhotosOpen(true)}
+                title="View Developer"
+                aria-label="View Developer"
+                className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-20 flex flex-col items-center justify-center gap-0.5 sm:gap-1 w-14 h-14 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl p-1 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 hover:text-white transition-all duration-300 group cursor-pointer shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <div className="relative">
+                  <Camera className="w-4 h-4 sm:w-6 sm:h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+                  <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-400 animate-ping" />
+                </div>
+                <span className="text-[9px] sm:text-xs font-mono font-bold tracking-tight text-center leading-tight text-slate-200 group-hover:text-white">
+                  View<br />Developer
+                </span>
+              </button>
+
               <div className="flex flex-col relative z-10">
                 {/* Avatar + Basic identity */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl p-1 border border-cyan-500/40 bg-slate-950 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
-                    <svg viewBox="0 0 100 100" className="w-10 h-10 sm:w-12 sm:h-12 filter drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 pr-16 sm:pr-24">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl p-1 border border-cyan-500/40 bg-slate-950 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
+                    <svg viewBox="0 0 100 100" className="w-9 h-9 sm:w-12 sm:h-12 filter drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
                       <polygon
                         points="50,3 95,25 95,75 50,97 5,75 5,25"
                         fill="#071226"
@@ -215,6 +235,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ darkMode, onOpenResu
           })}
         </div>
       </motion.div>
+
+      {/* Developer Photos Modal */}
+      <DeveloperPhotosModal
+        isOpen={devPhotosOpen}
+        onClose={() => setDevPhotosOpen(false)}
+        darkMode={darkMode}
+      />
     </section>
   );
 };

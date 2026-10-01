@@ -45,8 +45,14 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ darkMode }) => {
       case 'react':
         return <Atom className="w-4 h-4 text-cyan-400 flex-shrink-0" />;
       case 'node.js & express':
+      case 'node.js':
+      case 'nodejs':
       case 'node':
         return <Server className="w-4 h-4 text-emerald-500 flex-shrink-0" />;
+      case 'express.js':
+      case 'expressjs':
+      case 'express':
+        return <Server className="w-4 h-4 text-sky-400 flex-shrink-0" />;
       case 'tailwind css':
         return <Layers className="w-4 h-4 text-sky-400 flex-shrink-0" />;
       case 'vite build tool':

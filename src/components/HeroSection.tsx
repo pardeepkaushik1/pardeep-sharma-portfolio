@@ -125,9 +125,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ darkMode, onOpenResume
             </h1>
 
             {/* Animated Typing Role */}
-            <div className="h-10 sm:h-12 flex items-center mb-6">
+            <div className="h-9 sm:h-11 flex items-center mb-6">
               <h2
-                className={`text-2xl sm:text-3xl lg:text-4xl font-bold flex items-center gap-2 ${
+                className={`text-xl sm:text-2xl lg:text-3xl font-bold flex items-center gap-2 ${
                   darkMode ? 'text-slate-200' : 'text-slate-800'
                 }`}
               >
@@ -135,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ darkMode, onOpenResume
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-sky-400 font-extrabold">
                   {currentText}
                 </span>
-                <span className="w-1 h-7 sm:h-9 bg-cyan-400 animate-pulse ml-0.5" />
+                <span className="w-1 h-6 sm:h-7 bg-cyan-400 animate-pulse ml-0.5" />
               </h2>
             </div>
 

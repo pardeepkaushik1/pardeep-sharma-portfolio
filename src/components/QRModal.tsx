@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, QrCode, Copy, Check, ExternalLink } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
@@ -11,18 +11,7 @@ interface QRModalProps {
 
 export const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose }) => {
   const [copied, setCopied] = useState(false);
-  const [portfolioUrl, setPortfolioUrl] = useState(
- 'https://pardeepkaushik1.github.io/pardeep-sharma-portfolio');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.href) {
-      // Use the actual current live URL if available
-      const current = window.location.href.split('#')[0];
-      if (current && !current.includes('about:blank')) {
-        setPortfolioUrl(current);
-      }
-    }
-  }, [isOpen]);
+  const portfolioUrl = 'https://pardeepkaushik.netlify.app';
 
   if (!isOpen) return null;
 
