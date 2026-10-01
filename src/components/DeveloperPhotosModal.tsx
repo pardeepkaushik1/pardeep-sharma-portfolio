@@ -32,7 +32,7 @@ const DEFAULT_PHOTOS: PhotoItem[] = [
     id: 'photo-1',
     title: 'Developer Portrait (Rooftop)',
     subtitle: 'Frontend Developer • Pardeep Sharma',
-    src: '/public/images/img1.JPG',
+    src: '/public/images/img1.webp',
     caption: 'Official Developer Portrait • Frontend Developer & Web Designer',
     tag: 'Rooftop'
   },
@@ -40,7 +40,7 @@ const DEFAULT_PHOTOS: PhotoItem[] = [
     id: 'photo-2',
     title: 'City Plaza Walk & Lifestyle',
     subtitle: 'Streetwear & Lifestyle • Pardeep Sharma',
-    src: '/images/img2.PNG',
+    src: '/public/images/img2.webp',
     caption: 'Casual Outdoor Portrait • Pardeep Sharma • Lifestyle & Streetwear',
     tag: 'City Plaza'
   },
@@ -48,7 +48,7 @@ const DEFAULT_PHOTOS: PhotoItem[] = [
     id: 'photo-3',
     title: 'Modern Workspace & Code',
     subtitle: 'Tech Studio • Pardeep Sharma',
-    src: '/public/images/img3.JPG',
+    src: '/public/images/img3.webp',
     caption: 'Clean UI & Interactive Web Experiences • Tech Studio Session',
     tag: 'Tech Studio'
   },
@@ -56,7 +56,7 @@ const DEFAULT_PHOTOS: PhotoItem[] = [
     id: 'photo-4',
     title: 'Outdoor Garden & Park Walk',
     subtitle: 'Outdoor Lifestyle • @pardeepkaushik_1',
-    src: '/public/images/img4.JPG',
+    src: '/public/images/img4.webp',
     caption: 'Outdoor Lifestyle Portrait • Pardeep Sharma • Cheeka, Haryana',
     tag: 'Park Walk'
   }
