@@ -21,8 +21,6 @@ interface PhotoItem {
   title: string;
   subtitle: string;
   src: string;
-  caption: string;
-  tag: string;
 }
 
 // 4 High-resolution developer portrait images in standard <img> tags
@@ -30,36 +28,31 @@ interface PhotoItem {
 const DEFAULT_PHOTOS: PhotoItem[] = [
   {
     id: "photo-1",
-    title: "Developer Portrait (Rooftop)",
-    subtitle: "Frontend Developer • Pardeep Sharma",
+    title: "The Developer Behind the Code",
+    subtitle: "• Pardeep Sharma",
     src: "/images/img1.webp",
-    caption: "Official Developer Portrait • Frontend Developer & Web Designer",
-    tag: "Rooftop",
+  
   },
   {
     id: "photo-2",
-    title: "City Plaza Walk & Lifestyle",
-    subtitle: "Streetwear & Lifestyle • Pardeep Sharma",
+    title: "The Developer Behind the Code",
+    subtitle: "• Pardeep Sharma",
     src: "/images/img2.webp",
-    caption:
-      "Casual Outdoor Portrait • Pardeep Sharma • Lifestyle & Streetwear",
-    tag: "City Plaza",
+   
   },
   {
     id: "photo-3",
-    title: "Modern Workspace & Code",
-    subtitle: "Tech Studio • Pardeep Sharma",
+    title: "The Developer Behind the Code",
+    subtitle: "• Pardeep Sharma",
     src: "/images/img3.webp",
-    caption: "Clean UI & Interactive Web Experiences • Tech Studio Session",
-    tag: "Tech Studio",
+   
   },
   {
     id: "photo-4",
-    title: "Outdoor Garden & Park Walk",
-    subtitle: "Outdoor Lifestyle • @pardeepkaushik_1",
+    title: "The Developer Behind the Code",
+    subtitle: "• Pardeep Sharma",
     src: "/images/img4.webp",
-    caption: "Outdoor Lifestyle Portrait • Pardeep Sharma • Cheeka, Haryana",
-    tag: "Park Walk",
+   
   },
 ];
 
@@ -217,15 +210,11 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
                     <div className="w-14 h-14 sm:w-18 sm:h-18 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-3 shadow-[0_0_24px_rgba(6,182,212,0.25)]">
                       <Camera className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-400" />
                     </div>
-                    <span className="text-[11px] sm:text-xs font-mono text-cyan-400 font-semibold mb-1">
-                      {currentPhoto.tag}
-                    </span>
+                   
                     <h4 className="text-sm sm:text-base font-bold text-white mb-1.5">
                       {currentPhoto.title}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 max-w-xs leading-relaxed">
-                      {currentPhoto.caption}
-                    </p>
+                   
                   </div>
                 )}
 
@@ -271,9 +260,7 @@ export const DeveloperPhotosModal: React.FC<DeveloperPhotosModalProps> = ({
                 <span>{currentPhoto.title}</span>
                 <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 inline shrink-0" />
               </h4>
-              <p className="text-[10px] sm:text-xs text-slate-400 mt-0.5 line-clamp-1 sm:line-clamp-none">
-                {currentPhoto.caption}
-              </p>
+             
             </div>
 
             <div className="flex items-center gap-1 sm:gap-2 shrink-0">
